@@ -5,9 +5,9 @@
 
 // Конфигурация
 const CONFIG = {
-    APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw3mQQ9vOq-hQY__dD84Kemg4VBCmgtQOrby87ZRVX2S7Du7OzEMUccZ5moxJC7wHipGQ/exec', // ЗАМЕНИТЕ НА ВАШ URL
-    TELEGRAM_CHAT_URL: 'https://t.me/+hOTwCMbLMwI3ZDYy', // ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ НА ЧАТ
-    WEDDING_DATE: '2026-06-15T15:30:00' // Дата свадьбы
+    APPS_SCRIPT_URL: 'https://script.google.com/macros/s/Ag4VBCmgtQOrby87ZRVX2S7Du7OzEMUccZ5moxJC7wHipGQ/exec', // ЗАМЕНИТЕ НА ВАШ URL
+    TELEGRAM_CHAT_URL: 'https://t.me/+hOTwCMbDYy', // ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ НА ЧАТ
+    WEDDING_DATE: '2026-08-01T16:00:00' // Дата свадьбы
 };
 
 // Прелоадер
@@ -360,3 +360,100 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+
+// Музыкальный плеер
+const musicBtn = document.getElementById('musicToggleBtn');
+const musicWrapper = document.querySelector('.music-button-wrapper');
+let audio = null;
+let isPlaying = false;
+
+// Создаем аудио элемент
+function initAudio() {
+    audio = new Audio('1.mp3');
+    audio.loop = true;
+    audio.volume = 0.5;
+    
+    // Автовоспроизведение после любого взаимодействия с кнопкой
+    musicBtn.addEventListener('click', toggleMusic);
+}
+
+// Функция переключения музыки
+function toggleMusic() {
+    if (!audio) {
+        audio = new Audio('1.mp3');
+        audio.loop = true;
+        audio.volume = 0.5;
+    }
+    
+    if (isPlaying) {
+        audio.pause();
+        musicBtn.classList.remove('playing');
+        musicWrapper.classList.add('paused');
+        isPlaying = false;
+    } else {
+        // Пытаемся воспроизвести
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                musicBtn.classList.add('playing');
+                musicWrapper.classList.remove('paused');
+                isPlaying = true;
+            }).catch(error => {
+                console.log('Автовоспроизведение заблокировано браузером:', error);
+                showMusicHint();
+            });
+        }
+    }
+}
+
+// Подсказка, если автовоспроизведение заблокировано
+function showMusicHint() {
+    const hint = document.createElement('div');
+    hint.className = 'music-hint';
+    hint.innerHTML = '<i class="fas fa-info-circle"></i> Нажмите кнопку ещё раз, чтобы включить музыку';
+    hint.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        z-index: 9999;
+        white-space: nowrap;
+        font-family: 'Cormorant Garamond', serif;
+        pointer-events: none;
+        animation: fadeInOut 3s ease forwards;
+    `;
+    document.body.appendChild(hint);
+    
+    setTimeout(() => {
+        if (hint && hint.parentNode) hint.remove();
+    }, 3000);
+}
+
+// Добавляем стили для подсказки
+const hintStyle = document.createElement('style');
+hintStyle.textContent = `
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+        15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-10px); visibility: hidden; }
+    }
+`;
+document.head.appendChild(hintStyle);
+
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    initAudio();
+    
+    // Добавляем класс paused для остановки анимации текста до первого нажатия
+    if (musicWrapper) {
+        musicWrapper.classList.add('paused');
+    }
+});
