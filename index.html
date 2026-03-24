@@ -20,6 +20,22 @@
         <div class="hero-blur"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <!-- Кнопка включения музыки -->
+<div class="music-button-wrapper">
+        <button class="music-btn" id="musicToggleBtn">
+            <span class="triangle-icon"></span>
+        </button>
+    <svg class="rotating-text" width="120" height="120" viewBox="0 0 120 120">
+        <defs>
+            <path id="text-circle" d="M 60,60 m -50,0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" />
+        </defs>
+        <text class="rotating-text-content">
+            <textPath href="#text-circle" startOffset="0%">
+                ВКЛЮЧИТЕ МУЗЫКУ • ВКЛЮЧИТЕ МУЗЫКУ • ВКЛЮЧИТЕ
+            </textPath>
+        </text>
+    </svg>
+</div>
             <h1 class="names">Денис <span class="and">&</span> Наталья</h1>
             <p class="date">1 августа 2026</p>
             <p class="subtitle">Приглашаем вас разделить с нами начало нашей вечной истории</p>
@@ -193,6 +209,40 @@
         </div>
     </section>
 
+    <!-- Секция Дресс-код -->
+    <section class="dresscode">
+        <div class="container">
+            <h2 class="section-title">Дресс-код</h2>
+            <p class="section-subtitle">Мы будем очень благодарны, если Вы поддержите цветовую гамму нашей свадьбы</p>
+            
+            <div class="dresscode-colors">
+                <div class="color-circle" style="background-color: #F9F4F1;">
+                    
+                </div>
+                <div class="color-circle" style="background-color: #E5D5C5;">
+                </div>
+                <div class="color-circle" style="background-color: #D0B3A3;">
+                    
+                </div>
+                <div class="color-circle" style="background-color: #825C47;">
+                    
+                </div>
+                <div class="color-circle" style="background-color: #453224;">
+                    
+                </div>
+            </div>
+            
+            <div class="dresscode-image">
+                <img src="dress.png" alt="Рекомендации по дресс-коду" loading="lazy">
+            </div>
+            
+            <div class="dresscode-note">
+                <i class="fas fa-tshirt"></i>
+                <p>Вдохновляйтесь образами</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Таймер -->
     <section class="countdown">
         <div class="container">
@@ -225,7 +275,7 @@
         <div class="container">
             <div class="rsvp-header">
                 <h2 class="section-title">Мы будем рады видеть вас</h2>
-                <p class="rsvp-subtitle">Подтвердите, пожалуйста, ваше присутствие до 1 сентября</p>
+                <!-- <p class="rsvp-subtitle">Подтвердите, пожалуйста, ваше присутствие до 1 сентября</p> -->
             </div>
             
             <!-- Блок с приглашением в чат -->
@@ -248,7 +298,7 @@
                 </div>
             </div>
             
-            <form id="rsvp-form" class="rsvp-form">
+            <!-- <form id="rsvp-form" class="rsvp-form">
                 <div class="form-header">
                     <h3><i class="fas fa-pen-nib"></i> Ваш ответ</h3>
                     <p>Заполните, пожалуйста, эту форму</p>
@@ -317,9 +367,9 @@
                 <div class="form-footer">
                     <p><i class="fas fa-info-circle"></i> Ваши данные будут использованы только для организации свадьбы</p>
                 </div>
-            </form>
+            </form> -->
             
-            <div class="rsvp-success" id="success-message">
+            <!-- <div class="rsvp-success" id="success-message">
                 <div class="success-content">
                     <i class="fas fa-check-circle"></i>
                     <h3>Спасибо за ваш ответ!</h3>
@@ -328,7 +378,7 @@
                         <button class="success-btn" id="new-response">Заполнить ещё один ответ</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
