@@ -2021,3 +2021,27 @@ footer p {
         font-size: 0.7rem;
     }
 }
+
+/* Отключаем синее выделение телефонных номеров */
+a[href^="tel"], 
+.footer-contact,
+.footer-contact a,
+[class*="contact"],
+[class*="phone"] {
+    color: inherit !important;
+    text-decoration: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Запрещаем браузеру стилизовать телефонные номера */
+body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+}
+
+/* Отключаем автоматическую стилизацию ссылок на телефоны */
+a[href^="tel"] {
+    color: #b89474;
+    text-decoration: none;
+    pointer-events: auto;
+}
