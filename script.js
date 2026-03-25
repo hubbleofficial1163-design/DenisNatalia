@@ -457,3 +457,78 @@ document.addEventListener('DOMContentLoaded', function() {
         musicWrapper.classList.add('paused');
     }
 });
+
+
+// Календарь
+function renderWeddingCalendar() {
+    const calendarContainer = document.getElementById('weddingCalendar');
+    if (!calendarContainer) return;
+    
+    const weddingDate = new Date(2026, 7, 1); // 1 августа 2026 (месяцы в JS 0-11, поэтому 7 = август)
+    const year = 2026;
+    const month = 7; // август
+    
+    const firstDayOfMonth = new Date(year, month, 1);
+    const startWeekday = firstDayOfMonth.getDay(); // 0 = воскресенье, у нас неделя с понедельника
+    
+    // Корректируем: в русской неделе понедельник = 0
+    let startOffset = startWeekday === 0 ? 6 : startWeekday - 1;
+    
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const daysInPrevMonth = new Date(year, month, 0).getDate();
+    
+    let daysArray = [];
+    
+    // Дни предыдущего месяца
+    for (let i = startOffset - 1; i >= 0; i--) {
+        daysArray.push({
+            day: daysInPrevMonth - i,
+            isCurrentMonth: false,
+            isWeddingDay: false
+        });
+    }
+    
+    // Дни текущего месяца
+    for (let i = 1; i <= daysInMonth; i++) {
+        daysArray.push({
+            day: i,
+            isCurrentMonth: true,
+            isWeddingDay: (i === 1)
+        });
+    }
+    
+    // Дни следующего месяца для заполнения сетки (42 ячейки = 6 недель)
+    const remainingCells = 42 - daysArray.length;
+    for (let i = 1; i <= remainingCells; i++) {
+        daysArray.push({
+            day: i,
+            isCurrentMonth: false,
+            isWeddingDay: false
+        });
+    }
+    
+    // Отрисовка
+    calendarContainer.innerHTML = '';
+    daysArray.forEach(dayData => {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day';
+        
+        if (!dayData.isCurrentMonth) {
+            dayDiv.classList.add('other-month');
+        }
+        
+        if (dayData.isWeddingDay) {
+            dayDiv.classList.add('wedding-day');
+        }
+        
+        dayDiv.textContent = dayData.day;
+        calendarContainer.appendChild(dayDiv);
+    });
+}
+
+// Запускаем календарь при загрузке
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderWeddingCalendar);
+} else {
+    renderWeddingCalendar();
+}
