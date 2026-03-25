@@ -105,6 +105,12 @@ h1, h2, h3 {
     padding: 20px 15px;
 }
 
+.normal-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-feature-settings: "tnum", "lnum";
+    font-variant-numeric: normal;
+}
+
 /* .hero-blur {
     position: absolute;
     top: 0;
@@ -1808,3 +1814,37 @@ footer p {
         -4px 0 0 white,
         4px 0 0 white;
 } */
+
+
+.timeline-final-note {
+    margin-top: 40px;
+    padding: 25px 20px;
+    background: #fefcf8;
+    border-top: 1px solid #f0e6d8;
+    border-bottom: 1px solid #f0e6d8;
+    text-align: center;
+}
+
+.final-location {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #9c8a75;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.final-address {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #5a4c3e;
+    letter-spacing: 0.5px;
+}
+
+.normal-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-feature-settings: "tnum", "lnum";
+    font-variant-numeric: normal;
+}
