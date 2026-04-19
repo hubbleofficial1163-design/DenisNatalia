@@ -6,7 +6,7 @@
 // Конфигурация
 const CONFIG = {
     APPS_SCRIPT_URL: 'https://script.google.com/macros/s/Ag4VBCmgtQOrby87ZRVX2S7Du7OzEMUccZ5moxJC7wHipGQ/exec', // ЗАМЕНИТЕ НА ВАШ URL
-    TELEGRAM_CHAT_URL: 'https://max.ru/join/tLq0sVy4MC763sRO-jIl7F09EuIIEqizAVfbnkwJLec?fbclid=PARlRTSARQl8JleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeCGBacnw-gzdhOwGmVlNEzvT2aMX7iu7ebuDsIVpVgm8cJqpU3FxsSQGiKww_aem_kHV137S_c85JqEBKNBNKyQ', // ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ НА ЧАТ
+    TELEGRAM_CHAT_URL: 'https://max.ru/join/OPRmLxOTMVGyl_mldttI_hX0p1NoruGX0uud8bZmyZQ?fbclid=PARlRTSARR-jhleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafSgics6Y_inYouOJU0ouLDRG5ZfQUULgKC051oPCYnvVCPv7jvkJ4h2zGdvA_aem_-JceK-dA7qnrcPrl2sjkYA', // ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ НА ЧАТ
     WEDDING_DATE: '2026-08-01T16:00:00' // Дата свадьбы
 };
 
